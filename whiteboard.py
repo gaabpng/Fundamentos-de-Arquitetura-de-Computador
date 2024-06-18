@@ -29,23 +29,23 @@ def loop():
     if valorPiezo < 150:
         print()
 
-def op5():
-    nome_arquivo = input("Nome do arquivo: ")
-    nome_arquivo = "Prog1/" + nome_arquivo
-    with open(nome_arquivo, 'a+') as arquivo:
-        nome = input("Nome do aluno: (SEM ESPAÇO) ")
-        matricula = input("Matrícula do aluno: ")
-        p1 = input("Nota da P1: ")
-        p2 = input("Nota da P2: ")
-        trabalho = input("Nota do trabalho: ")
+# def op5():
+#     nome_arquivo = input("Nome do arquivo: ")
+#     nome_arquivo = "Prog1/" + nome_arquivo
+#     with open(nome_arquivo, 'a+') as arquivo:
+#         nome = input("Nome do aluno: (SEM ESPAÇO) ")
+#         matricula = input("Matrícula do aluno: ")
+#         p1 = input("Nota da P1: ")
+#         p2 = input("Nota da P2: ")
+#         trabalho = input("Nota do trabalho: ")
 
-        linha = f"{nome}\t{matricula}\t{p1}\t{p2}\t{trabalho}\n"
-        arquivo.write(linha)
+#         linha = f"{nome}\t{matricula}\t{p1}\t{p2}\t{trabalho}\n"
+#         arquivo.write(linha)
 
-        continuar = input("Deseja continuar? (S/N): ").strip().upper()
-        if continuar == "S":
-            op5()
-        else:
-            arquivo.close()
-            print("Dados gravados com sucesso.")
-            main()
+#         continuar = input("Deseja continuar? (S/N): ").strip().upper()
+#         if continuar == "S":
+#             op5()
+#         else:
+#             arquivo.close()
+#             print("Dados gravados com sucesso.")
+#             main()
