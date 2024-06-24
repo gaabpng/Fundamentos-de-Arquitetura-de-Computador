@@ -1,3 +1,9 @@
+#
+#   CONSIDERE QUE 00 = " "
+#   CONSIDERE QUE 01 = "."'
+#   CONSIDERE QUE 11 = "-"
+#
+
 def tradutor_binário(binary):
     # Verifica se o comprimento da string é múltiplo de 2
     if len(binary) % 2 != 0:
