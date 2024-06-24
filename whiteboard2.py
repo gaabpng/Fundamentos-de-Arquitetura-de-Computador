@@ -1,39 +1,27 @@
-def transcricao(lista):
-    global palavra
-    i = 0
-    while i < len(lista):
-        if i + 2 < len(lista) and lista[i] == "1" and lista[i + 1] == "1" and lista[i + 2] == "1":
-            palavra.append("-")
-            i += 3  # Pula os próximos dois elementos, pois já foram processados
-        elif i + 1 < len(lista) and lista[i] == "1" and lista[i + 1] == "0":
-            palavra.append(".")
-            i += 1  # Pula o próximo elemento, pois já foi processado
-        elif i+1 < len(lista) and lista[i] == "0" and lista[i+1] == "0":
-            palavra.append(" ")
-            i += 1  # Pula para o próximo elemento
-        else:
-            i+= 1
-    return palavra
+def tradutor_binário(binary):
+    # Verifica se o comprimento da string é múltiplo de 2
+    if len(binary) % 2 != 0:
+        raise ValueError("A string binária deve ter um comprimento par.")
 
-# Entrada do usuário
-lista = ['1', '1', '1','1', '1', '1','1', '1', '1','0', '0','1', '0', '1', '0', '1','0','0',  '1', '1', '1','1', '1', '1','1', '1', '1']
-entrada = ""
+    # Define a conversão de pares binários para Morse
+    morse_dict = {
+        '00': ' ',
+        '01': '.',
+        '11': '-'
+    }
 
-# while entrada != "-1":
-#     entrada = input()
-#     if entrada != "-1":
-#         lista.append(entrada)
+    # Converte a string binária para Morse
+    morse_string = ''
+    for i in range(0, len(binary), 2):
+        pair = binary[i:i+2]
+        if pair not in morse_dict:
+            raise ValueError(f"Par inválido encontrado: {pair}")
+        morse_string += morse_dict[pair]
+    
+    return morse_string
 
-# Adiciona dois zeros ao final da lista para garantir que a lógica funcione corretamente
-lista.append("0")
-lista.append("0")
-
-
-# Transcrição da lista para a palavra
-palavra = []
-transcricao(lista)
-
-palavra.pop()
-# Imprime a palavra resultante
-print(lista)
-print(palavra)
+# Testando a função
+binary_input = input()
+morse_output = tradutor_binário(binary_input)
+print(f"Binary: {binary_input}")
+print(f"Morse: {morse_output}")
